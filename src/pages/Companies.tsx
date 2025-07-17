@@ -209,8 +209,8 @@ export const Companies: React.FC = () => {
                          company.domain?.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          company.industry?.toLowerCase().includes(searchTerm.toLowerCase())
     
-    const matchesIndustry = !selectedIndustry || company.industry === selectedIndustry
-    const matchesSize = !selectedSize || company.size === selectedSize
+    const matchesIndustry = !selectedIndustry || selectedIndustry === 'all' || company.industry === selectedIndustry
+    const matchesSize = !selectedSize || selectedSize === 'all' || company.size === selectedSize
     
     return matchesSearch && matchesIndustry && matchesSize
   })
@@ -388,7 +388,7 @@ export const Companies: React.FC = () => {
                   <SelectValue placeholder="Industry" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Industries</SelectItem>
+                  <SelectItem value="all">All Industries</SelectItem>
                   {INDUSTRIES.map(industry => (
                     <SelectItem key={industry} value={industry}>{industry}</SelectItem>
                   ))}
@@ -400,7 +400,7 @@ export const Companies: React.FC = () => {
                   <SelectValue placeholder="Size" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Sizes</SelectItem>
+                  <SelectItem value="all">All Sizes</SelectItem>
                   {COMPANY_SIZES.map(size => (
                     <SelectItem key={size} value={size}>{size}</SelectItem>
                   ))}

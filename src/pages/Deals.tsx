@@ -276,7 +276,7 @@ export const Deals: React.FC = () => {
                          deal.companies?.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          `${deal.contacts?.first_name} ${deal.contacts?.last_name}`.toLowerCase().includes(searchTerm.toLowerCase())
     
-    const matchesStage = !selectedStage || deal.stage === selectedStage
+    const matchesStage = !selectedStage || selectedStage === 'all' || deal.stage === selectedStage
     
     return matchesSearch && matchesStage
   })
@@ -575,7 +575,7 @@ export const Deals: React.FC = () => {
                   <SelectValue placeholder="Stage" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Stages</SelectItem>
+                  <SelectItem value="all">All Stages</SelectItem>
                   {DEAL_STAGES.map(stage => (
                     <SelectItem key={stage.key} value={stage.key}>{stage.label}</SelectItem>
                   ))}

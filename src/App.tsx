@@ -8,6 +8,12 @@ import { Auth } from './pages/Auth'
 import { Contacts } from './pages/Contacts'
 import { Companies } from './pages/Companies'
 import { Deals } from './pages/Deals'
+import { Tickets } from './pages/Tickets'
+import { EmailCampaigns } from './pages/EmailCampaigns'
+import { KnowledgeBase } from './pages/KnowledgeBase'
+import { LiveChat } from './pages/LiveChat'
+import { Tickets } from './pages/Tickets'
+import { EmailCampaigns } from './pages/EmailCampaigns'
 import { Toaster } from './components/ui/sonner'
 import './lib/i18n'
 
@@ -49,9 +55,9 @@ const MainApp: React.FC = () => {
       case 'deals':
         return <Deals />
       case 'tickets':
-        return <div className="p-6"><h1 className="text-2xl font-bold">Support Tickets</h1><p className="text-gray-600">Ticket system coming soon...</p></div>
+        return <Tickets />
       case 'campaigns':
-        return <div className="p-6"><h1 className="text-2xl font-bold">Email Campaigns</h1><p className="text-gray-600">Email marketing coming soon...</p></div>
+        return <EmailCampaigns />
       case 'reports':
         return <div className="p-6"><h1 className="text-2xl font-bold">Reports</h1><p className="text-gray-600">Analytics and reporting coming soon...</p></div>
       case 'tasks':

@@ -128,7 +128,7 @@ export const Contacts: React.FC = () => {
         .from('contacts')
         .insert({
           ...formData,
-          company_id: formData.company_id || null,
+          company_id: formData.company_id === 'none' ? null : formData.company_id || null,
           created_by: user?.id
         })
 
@@ -154,7 +154,7 @@ export const Contacts: React.FC = () => {
         .from('contacts')
         .update({
           ...formData,
-          company_id: formData.company_id || null,
+          company_id: formData.company_id === 'none' ? null : formData.company_id || null,
           updated_at: new Date().toISOString()
         })
         .eq('id', selectedContact.id)
@@ -303,7 +303,7 @@ export const Contacts: React.FC = () => {
               <SelectValue placeholder="Select a company" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">No Company</SelectItem>
+              <SelectItem value="none">No Company</SelectItem>
               {companies.map((company) => (
                 <SelectItem key={company.id} value={company.id}>
                   {company.name}
